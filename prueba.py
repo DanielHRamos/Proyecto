@@ -13,6 +13,5 @@ def main():
         
     for pelicula in peliculas:
         pelicula.show()
-    
-    
+            
 main()
