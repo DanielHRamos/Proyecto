@@ -13,4 +13,5 @@ class Film():
         print(f"Opening crawl: {self.op_crawl}")
         print(f"Director: {self.director}")
         print()
+        print("---------------------------------------------")
         print()
