@@ -1,5 +1,6 @@
 from db import load_films
 from Film import Film
+from Grafico import Grafico
 
 
 def main():
@@ -12,6 +13,8 @@ def main():
                          film["properties"]["director"]))
         
     for pelicula in peliculas:
-        pelicula.show()
-            
+        pelicula.show_attr()
+    
+    graphic = Grafico(r"C:\Users\Daniel\Desktop\starwars\csv\characters.csv")
+    graphic.mostrar_grafico()
 main()

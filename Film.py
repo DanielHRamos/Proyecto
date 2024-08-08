@@ -6,7 +6,7 @@ class Film():
         self.op_crawl = op_crawl
         self.director = director
         
-    def show(self):
+    def show_attr(self):
         print(f"-Titulo: {self.titulo}")
         print()
         print(f"-Numero de episodio: {self.nro_episodio}")
@@ -17,5 +17,5 @@ class Film():
         print()
         print(f"-Director: {self.director}")
         print()
-        print("-----------------------------------")
+        print("---------------------------------")
         print()
