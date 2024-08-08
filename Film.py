@@ -7,11 +7,15 @@ class Film():
         self.director = director
         
     def show(self):
-        print(f"Titulo: {self.titulo}")
-        print(f"Numero de episodio: {self.nro_episodio}")
-        print(f"Fecha de estreno: {self.fecha_estreno}")
-        print(f"Opening crawl: {self.op_crawl}")
-        print(f"Director: {self.director}")
+        print(f"-Titulo: {self.titulo}")
         print()
-        print("---------------------------------------------")
+        print(f"-Numero de episodio: {self.nro_episodio}")
+        print()
+        print(f"-Fecha de estreno: {self.fecha_estreno}")
+        print()
+        print(f"<<<<<<<< Opening crawl >>>>>>>>\n\n{self.op_crawl}")
+        print()
+        print(f"-Director: {self.director}")
+        print()
+        print("-----------------------------------")
         print()
