@@ -7,7 +7,7 @@ from Estadistica import Estadistica
 
 def main():
     peliculas = []
-    
+    prueba = 1
     for film in load_films()["result"]:
         peliculas.append(Film(film["properties"]["title"],
                          film["properties"]["episode_id"],
