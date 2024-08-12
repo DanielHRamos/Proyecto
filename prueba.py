@@ -2,11 +2,11 @@ import csv
 import os
 
 # Definimos las constantes para los archivos CSV
-BATTLES_CSV = 'battles.csv'
-PLANETS_CSV = 'planets.csv'
-STARSHIPS_CSV = 'starships.csv'
-WEAPONS_CSV = 'weapons.csv'
-CHARACTERS_CSV = 'characters.csv'
+nombremision_CSV = 'Proyecto/battles.csv'
+planeta_CSV = 'Proyecto/planets.csv'
+nave_CSV = "Proyecto/starships.csv"
+arma_CSV = 'Proyecto/weapons.csv'
+personaje_CSV = 'Proyecto/characters.csv'
 
 # Definimos la clase Misión
 class Mision:
@@ -17,7 +17,7 @@ class Mision:
         self.armas = armas
         self.integrantes = integrantes
 
-# Definimos la función para cargar los datos de los archivos CSV
+# Función para cargar los datos de los archivos CSV
 def cargar_datos():
     battles = []
     planets = []
@@ -25,52 +25,54 @@ def cargar_datos():
     weapons = []
     characters = []
 
-    with open(BATTLES_CSV, 'r') as csvfile:
+    with open(nombremision_CSV, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            battles.append(row['nombre'])
+            battles.append(row['name'])
 
-    with open(PLANETS_CSV, 'r') as csvfile:
+    with open(planeta_CSV, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            planets.append(row['nombre'])
+            planets.append(row['name'])
 
-    with open(STARSHIPS_CSV, 'r') as csvfile:
+    with open(nave_CSV, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            starships.append(row['nombre'])
+            starships.append(row['name'])
 
-    with open(WEAPONS_CSV, 'r') as csvfile:
+    with open(arma_CSV, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            weapons.append(row['nombre'])
+            weapons.append(row['name'])
 
-    with open(CHARACTERS_CSV, 'r') as csvfile:
+    with open(personaje_CSV, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            characters.append(row['nombre'])
+            characters.append(row['name'])
 
     return battles, planets, starships, weapons, characters
 
-# Definimos la función para crear una misión
+# Función para crear una misión
 def crear_mision():
-    battles, planets, starships, weapons, characters = cargar_datos()
-
+    battles, planets, starships, weapons, characters = cargar_datos() #REVISAR 
+    
     print("Seleccione el nombre de la misión:")
     for i, battle in enumerate(battles):
         print(f"{i+1}. {battle}")
     nombre = input("Ingrese el número de la misión: ")
     nombre = battles[int(nombre) - 1]
-
+    print()
     print("Seleccione el planeta destino:")
     for i, planet in enumerate(planets):
         print(f"{i+1}. {planet}")
+    print()
     planeta = input("Ingrese el número del planeta: ")
     planeta = planets[int(planeta) - 1]
-
+    print()
     print("Seleccione la nave a utilizar:")
     for i, starship in enumerate(starships):
         print(f"{i+1}. {starship}")
+    print()
     nave = input("Ingrese el número de la nave: ")
     nave = starships[int(nave) - 1]
 
@@ -79,16 +81,19 @@ def crear_mision():
     for i, weapon in enumerate(weapons):
         print(f"{i+1}. {weapon}")
     while len(armas_seleccionadas) < 7:
+        print()
         arma = input("Ingrese el número de la arma (0 para terminar): ")
         if arma == "0":
             break
         armas_seleccionadas.append(weapons[int(arma) - 1])
 
     integrantes_seleccionados = []
+    print()
     print("Seleccione los integrantes de la misión (hasta 7):")
     for i, character in enumerate(characters):
         print(f"{i+1}. {character}")
     while len(integrantes_seleccionados) < 7:
+        print()
         integrante = input("Ingrese el número del integrante (0 para terminar): ")
         if integrante == "0":
             break
@@ -97,7 +102,7 @@ def crear_mision():
     mision = Mision(nombre, planeta, nave, armas_seleccionadas, integrantes_seleccionados)
     return mision
 
-# Definimos la función para modificar una misión
+# Función para modificar una misión
 def modificar_mision(misiones):
     print("Seleccione la misión a modificar:")
     for i, mision in enumerate(misiones):
@@ -152,8 +157,9 @@ def modificar_mision(misiones):
                 break
             mision.integrantes.append(characters[int(integrante) - 1])
 
-# Definimos la función para visualizar una misión
+#Función para visualizar una misión
 def visualizar_mision(misiones):
+    print ()
     print("Seleccione la misión a visualizar:")
     for i, mision in enumerate(misiones):
         print(f"{i+1}. {mision.nombre}")
@@ -171,7 +177,7 @@ def visualizar_mision(misiones):
     for integrante in mision.integrantes:
         print(f"- {integrante}")
 
-# Definimos la función para guardar misiones
+# Función para guardar misiones
 def guardar_misiones(misiones):
     with open("misiones.txt", "w") as f:
         for mision in misiones:
@@ -186,8 +192,8 @@ def guardar_misiones(misiones):
                 f.write(f"- {integrante}\n")
             f.write("\n")
 
-# Definimos la función para cargar misiones
-def cargar_misiones():
+# Función para cargar misiones
+def cargar_misiones(): #preguntar a Daniel 
     misiones = []
     if os.path.exists("misiones.txt"):
         with open("misiones.txt", "r") as f:
@@ -219,10 +225,12 @@ def cargar_misiones():
                     mision = {}
     return misiones
 
-# Definimos el menú principal
+# Menú principal
 def menu_principal():
     misiones = []
     while True:
+        print('Bienvenidos al creador de misiones de Star Wars Metropedia')
+        print ()
         print("Menú principal:")
         print("1. Crear misión")
         print("2. Modificar misión")
@@ -230,7 +238,7 @@ def menu_principal():
         print("4. Guardar misiones")
         print("5. Cargar misiones")
         print("6. Salir")
-        opcion = input("Ingrese la opción deseada: ")
+        opcion = input("Ingrese la opción que desea utilizar: ")
 
         if opcion == "1":
             if len(misiones) < 5:
@@ -256,5 +264,5 @@ def menu_principal():
         else:
             print("Opción inválida. Intente nuevamente.")
 
-# Ejecutamos el menú principal
+# ejecucion menú 
 menu_principal()
