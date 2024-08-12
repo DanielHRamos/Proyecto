@@ -25,15 +25,15 @@ def main():
                 pelicula.show_attr()
         
         elif opcion == "2":
-            graphic = Natalidad(r"C:\Users\Daniel\Desktop\Proyecto\Proyecto\characters.csv")
+            graphic = Natalidad("characters.csv")
             graphic.mostrar_grafico()
             
         elif opcion == "3":
-            graphic1 = Nave(r"C:\Users\Daniel\Desktop\Proyecto\Proyecto\starships.csv")
+            graphic1 = Nave("starships.csv")
             graphic1.mostrar_grafico()
         
         elif opcion == "4":
-            tabla = Estadistica(r"C:\Users\Daniel\Desktop\Proyecto\Proyecto\starships.csv")
+            tabla = Estadistica("starships.csv")
             tabla.mostrar_tabla()
             
         elif opcion == "0":
