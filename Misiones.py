@@ -1,5 +1,6 @@
 import csv
 import os
+from Mision import Mision
 
 # Definimos las constantes para los archivos CSV
 nombremision_CSV = 'Proyecto/battles.csv'
@@ -7,15 +8,6 @@ planeta_CSV = 'Proyecto/planets.csv'
 nave_CSV = "Proyecto/starships.csv"
 arma_CSV = 'Proyecto/weapons.csv'
 personaje_CSV = 'Proyecto/characters.csv'
-
-# Definimos la clase Misión
-class Mision:
-    def __init__(self, nombre, planeta, nave, armas, integrantes):
-        self.nombre = nombre
-        self.planeta = planeta
-        self.nave = nave
-        self.armas = armas
-        self.integrantes = integrantes
 
 # Función para cargar los datos de los archivos CSV
 def cargar_datos():
@@ -55,7 +47,7 @@ def cargar_datos():
 # Función para crear una misión
 def crear_mision():
     battles, planets, starships, weapons, characters = cargar_datos() #REVISAR 
-    
+    print ()
     print("Seleccione el nombre de la misión:")
     for i, battle in enumerate(battles):
         print(f"{i+1}. {battle}")
@@ -77,11 +69,11 @@ def crear_mision():
     nave = starships[int(nave) - 1]
 
     armas_seleccionadas = []
+    print()
     print("Seleccione las armas a utilizar (hasta 7):")
     for i, weapon in enumerate(weapons):
         print(f"{i+1}. {weapon}")
     while len(armas_seleccionadas) < 7:
-        print()
         arma = input("Ingrese el número de la arma (0 para terminar): ")
         if arma == "0":
             break
@@ -93,7 +85,6 @@ def crear_mision():
     for i, character in enumerate(characters):
         print(f"{i+1}. {character}")
     while len(integrantes_seleccionados) < 7:
-        print()
         integrante = input("Ingrese el número del integrante (0 para terminar): ")
         if integrante == "0":
             break
@@ -229,15 +220,15 @@ def cargar_misiones(): #preguntar a Daniel
 def menu_principal():
     misiones = []
     while True:
+        print()
         print('Bienvenidos al creador de misiones de Star Wars Metropedia')
         print ()
         print("Menú principal:")
         print("1. Crear misión")
         print("2. Modificar misión")
         print("3. Visualizar misión")
-        print("4. Guardar misiones")
-        print("5. Cargar misiones")
-        print("6. Salir")
+        print("4. Cargar misiones")
+        print("5. Salir")
         opcion = input("Ingrese la opción que desea utilizar: ")
 
         if opcion == "1":
@@ -256,10 +247,8 @@ def menu_principal():
             else:
                 print("No hay misiones creadas.")
         elif opcion == "4":
-            guardar_misiones(misiones)
-        elif opcion == "5":
             misiones = cargar_misiones()
-        elif opcion == "6":
+        elif opcion == "5":
             break
         else:
             print("Opción inválida. Intente nuevamente.")
