@@ -254,7 +254,4 @@ def menu_principal():
         elif opcion == "6":
             print ('Gracias por utilizar el creador de misiones de Star Wars Metropedia')
             break
-        
-
-# ejecucion menú 
-menu_principal()
+    
