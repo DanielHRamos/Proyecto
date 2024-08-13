@@ -1,0 +1,20 @@
+Nombre de la mision: Battle of Endor
+Planeta destino: Corellia
+Nave a utilizar: Venator-class Star Destroyer
+Armas a utilizar:
+- Lightsaber
+- DL-44 Blaster Pistol
+- E-11 Blaster Rifle
+- Bowcaster
+- Bowcaster
+- Thermal Detonator
+- Bowcaster
+Integrantes de la misión:
+- Darth Vader
+- Yoda
+- Han Solo
+- Chewbacca
+- Yoda
+- Darth Vader
+- Darth Vader
+

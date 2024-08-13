@@ -5,9 +5,9 @@ from Mision import Mision
 # Definimos las constantes para los archivos CSV
 nombremision_CSV = 'Proyecto/battles.csv'
 planeta_CSV = 'Proyecto/planets.csv'
-nave_CSV = "Proyecto/starships.csv"
+nave_CSV = "starships.csv"
 arma_CSV = 'Proyecto/weapons.csv'
-personaje_CSV = 'Proyecto/characters.csv'
+personaje_CSV = 'characters.csv'
 
 # Función para cargar los datos de los archivos CSV
 def cargar_datos():
@@ -172,7 +172,7 @@ def visualizar_mision(misiones):
 def guardar_misiones(misiones):
     with open("misiones.txt", "w") as f:
         for mision in misiones:
-            f.write(f"Nombre: {mision.nombre}\n")
+            f.write(f"Nombre de la mision: {mision.nombre}\n")
             f.write(f"Planeta destino: {mision.planeta}\n")
             f.write(f"Nave a utilizar: {mision.nave}\n")
             f.write("Armas a utilizar:\n")
@@ -191,7 +191,7 @@ def cargar_misiones(): #preguntar a Daniel
             lines = f.readlines()
             mision = {}
             for line in lines:
-                if line.startswith("Nombre:"):
+                if line.startswith("Nombre de la mision:"):
                     mision['nombre'] = line.strip().split(": ")[1]
                 elif line.startswith("Planeta destino:"):
                     mision['planeta'] = line.strip().split(": ")[1]
@@ -227,8 +227,9 @@ def menu_principal():
         print("1. Crear misión")
         print("2. Modificar misión")
         print("3. Visualizar misión")
-        print("4. Cargar misiones")
-        print("5. Salir")
+        print("4. Guardar misiones")
+        print("5. Cargar misiones")
+        print("6. Salir")
         opcion = input("Ingrese la opción que desea utilizar: ")
 
         if opcion == "1":
@@ -247,11 +248,13 @@ def menu_principal():
             else:
                 print("No hay misiones creadas.")
         elif opcion == "4":
-            misiones = cargar_misiones()
+            guardar_misiones(misiones)
         elif opcion == "5":
+            misiones = cargar_misiones()
+        elif opcion == "6":
+            print ('Gracias por utilizar el creador de misiones de Star Wars Metropedia')
             break
-        else:
-            print("Opción inválida. Intente nuevamente.")
+        
 
 # ejecucion menú 
 menu_principal()
