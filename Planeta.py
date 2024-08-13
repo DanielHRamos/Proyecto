@@ -29,5 +29,7 @@ def mostrar_planeta():
         print(f"Período de rotación: {planet.rotation_period}")
         print(f"Cantidad de habitantes: {planet.population}")
         print(f"Tipo de clima: {planet.climate}")
+        print("---------------------------------")
+        print()
 
 
