@@ -1,6 +1,6 @@
 import requests
 
-class Species:
+class Especies:
     def __init__(self, data):
         self.name = data.get('name')
         self.height = data.get('average_height')
