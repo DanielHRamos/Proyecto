@@ -1,3 +1,4 @@
+import requests
 class SWAPI:
     BASE_URL = 'https://www.swapi.tech/api/'
 
@@ -30,3 +31,16 @@ class SWAPI:
                 film_data = response.json()
                 film_titles.append(film_data.get('title'))
         return film_titles
+
+
+def buscar_personaje():
+    query = input("Introduce el nombre para buscar personajes: ")
+    characters = SWAPI.search_characters(query)
+
+    for character in characters:
+        print(f"Nombre: {character.get('name')}")
+        print(f"Planeta de origen: {SWAPI.get_planet_name(character.get('homeworld'))}")
+        print(f"Títulos de episodios: {', '.join(SWAPI.get_film_titles(character.get('films')))}")
+        print(f"Género: {character.get('gender')}")
+        print(f"Especie: {character.get('species', ['Desconocida'])[0]}")
+        print("-" * 40)

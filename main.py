@@ -4,7 +4,9 @@ from Natalidad import Natalidad
 from Nave import Nave
 from Estadistica import Estadistica
 from MisionesA import menu_principal
-
+from Especie import mostrar_especies
+from Planeta import mostrar_planeta
+from Swapi import buscar_personaje
 def main():
     peliculas = []
     
@@ -18,25 +20,34 @@ def main():
 
     
     while True:
-        opcion = input(f"\nBienvenido a la metropedia de Star Wars, seleccione una opcion para continuar.\n\n1) Mostrar lista de peliculas.\n2) Mostrar grafico de personajes nacidos en cada planeta. \n3) Mostrar graficos de caracteristicas de naves. \n4) Mostrar tabla de estadisticas sobre naves. \n5) Construir mision. \n0) Salir.\n\n\n>>> ")
+        opcion = input(f"\nBienvenido a la metropedia de Star Wars, seleccione una opcion para continuar.\n\n1) Mostrar lista de peliculas.\n2) Mostrar lista de las especies de seres vivos de la saga. \n3) Mostrar lista de planetas. \n4) Buscar personaje. \n5) Mostrar grafico de personajes nacidos en cada planeta. \n6) Mostrar graficos de caracteristicas de naves. \n7) Mostrar tabla de estadisticas sobre naves. \n8) Construir mision. \n0) Salir.\n\n\n>>> ")
         
         if opcion == "1":
             for pelicula in peliculas:
                 pelicula.show_attr()
         
         elif opcion == "2":
+            mostrar_especies()
+            
+        elif opcion == "3":
+            mostrar_planeta()
+            
+        elif opcion == "4":
+            buscar_personaje()
+            
+        elif opcion == "5":
             graphic = Natalidad("characters.csv")
             graphic.mostrar_grafico()
             
-        elif opcion == "3":
+        elif opcion == "6":
             graphic1 = Nave("starships.csv")
             graphic1.mostrar_grafico()
         
-        elif opcion == "4":
+        elif opcion == "7":
             tabla = Estadistica("starships.csv")
             tabla.mostrar_tabla()
             
-        elif opcion == "5":
+        elif opcion == "8":
             menu_principal()
             
         elif opcion == "0":

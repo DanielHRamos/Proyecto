@@ -7,7 +7,7 @@ class Planet:
         self.rotation_period = data.get('rotation_period')
         self.population = data.get('population')
         self.climate = data.get('climate')
-        # Agrega más atributos según tus necesidades
+
 
 def get_planet_data():
     url = 'https://www.swapi.tech/api/planets/'
@@ -20,7 +20,7 @@ def get_planet_data():
         print(f"Error al obtener datos de SWAPI. Código de estado: {response.status_code}")
         return []
 
-def main():
+def mostrar_planeta():
     planet_list = get_planet_data()
     for planet_data in planet_list:
         planet = Planet(planet_data)
@@ -29,7 +29,5 @@ def main():
         print(f"Período de rotación: {planet.rotation_period}")
         print(f"Cantidad de habitantes: {planet.population}")
         print(f"Tipo de clima: {planet.climate}")
-        # Agrega más información aquí
 
-if __name__ == "__main__":
-    main()
+

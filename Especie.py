@@ -1,6 +1,6 @@
 import requests
 
-class Especies:
+class Especie:
     def __init__(self, data):
         self.name = data.get('name')
         self.height = data.get('average_height')
@@ -21,9 +21,9 @@ def get_species_data():
         print(f"Error al obtener datos de SWAPI. Código de estado: {response.status_code}")
         return []
 
-def main():
+def mostrar_especies():
     species_list = get_species_data()
-    species_objects = [Species(species_data) for species_data in species_list]
+    species_objects = [Especie(species_data) for species_data in species_list]
     sorted_species = sorted(species_objects, key=lambda x: x.name)
 
     for species in sorted_species:
@@ -36,5 +36,3 @@ def main():
         print(f"Episodios: {', '.join(species.films)}")
         print("-" * 40)
 
-if __name__ == "__main__":
-    main()
