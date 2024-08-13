@@ -5,9 +5,9 @@ from Mision import Mision
 # Definimos las constantes para los archivos CSV
 nombremision_CSV = 'Proyecto/battles.csv'
 planeta_CSV = 'Proyecto/planets.csv'
-nave_CSV = "Proyecto/starships.csv"
+nave_CSV = "starships.csv"
 arma_CSV = 'Proyecto/weapons.csv'
-personaje_CSV = 'Proyecto/characters.csv'
+personaje_CSV = 'characters.csv'
 
 # Función para cargar los datos de los archivos CSV
 def cargar_datos():
@@ -256,5 +256,3 @@ def menu_principal():
             break
         
 
-# ejecucion menú 
-menu_principal()
